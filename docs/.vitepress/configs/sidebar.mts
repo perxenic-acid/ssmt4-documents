@@ -50,6 +50,9 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
         },
         {
           text: '函数与控制流', link: '/developer/rust/函数与控制流/函数与控制流.md'
+        },
+        {
+          text: '所有权', link: '/developer/rust/所有权/所有权.md'
         }
       ]
     }
