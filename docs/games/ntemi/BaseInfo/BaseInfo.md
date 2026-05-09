@@ -1,41 +1,37 @@
 ## 介绍
 
-对于 异环 这个游戏来说，最好的方式是使用.pak格式的UE引擎重打包Mod，避免使用3Dmigoto所带来的一系列问题
+对于 **异环** 来说，更推荐使用 **`.pak` 格式的 UE 重打包 Mod**，尽量避免直接依赖 **3Dmigoto**，因为后者往往会带来更多兼容性和使用上的问题。
 
+## ssice-a 的 3Dmigoto 适配资源
 
-## ssice-a的3Dmigoto适配
-Github主页：
+如果你仍然需要使用 3Dmigoto 相关方案，可以参考下面这些项目：
 
-https://github.com/ssice-a
+- Github 主页：<https://github.com/ssice-a>
+- `NTMI-PACKAGE`：<https://github.com/ssice-a/NTMI-PACKAGE>
+- NTMI 专属 `d3d11.dll`：<https://github.com/ssice-a/XXMI-Libs-Package>
+- `NTMI-Tools`（用于导入导出 Blender 插件）：<https://github.com/ssice-a/mod_importer>
 
-NTMI-Package
+## 在 SSMT4 中使用异环 Mod
 
-https://github.com/ssice-a/NTMI-PACKAGE
+目前，**SSMT4** 已经支持以下内容：
 
-NTMI专属d3d11.dll
+- 自动下载由 **ssice-a** 开发的 NTMI 专属 `d3d11.dll`
+- 自动更新 `NTMI-PACKAGE`
 
-https://github.com/ssice-a/XXMI-Libs-Package
+不过，考虑到稳定性和后续使用体验，我个人仍然更建议优先使用 **`.pak` 重打包** 的方式。因此，当前暂时 **不会添加模型提取和 Mod 生成功能**。
 
-NTMI-Tools (导入导出Blender插件)
+## 配置方式
 
-https://github.com/ssice-a/mod_importer
+请按下面的方式填写：
 
+- **游戏预设**：`NTEMI`
+- **目标进程路径**（替换为你自己的游戏路径）：`C:\Program Files\Neverness To Everness\Client\WindowsNoEditor\HT\Binaries\Win64\HTGame.exe`
+- **启动器路径**：留空
+- **启动参数**：留空
 
-## SSMT4使用异环Mod
+## 启动说明
 
-目前SSMT4已添加了ssice-a开发的NTMI专属d3d11.dll的自动下载支持，以及NTMI-Package的自动更新支持
+点击 **开始游戏** 后，SSMT4 会自动启动 `Run.exe`。
 
-但是我个人觉得使用pak重打包的方式会更好一些，所以暂时不会添加模型提取和Mod生成逻辑
-
-配置方式如下：
-
-游戏预设：NTEMI
-
-目标进程路径：C:\Program Files\Neverness To Everness\Client\WindowsNoEditor\HT\Binaries\Win64\HTGame.exe
-
-启动器路径：空着不填
-
-启动参数：空着不填
-
-点击开始游戏自动启动Run.exe，然后手动从官方启动器启动游戏即可，官方启动器中要设为dx11模式
+之后需要你 **手动从官方启动器启动游戏**，并确保官方启动器中的渲染模式设置为 **DX11**。
 
