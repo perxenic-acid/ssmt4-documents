@@ -71,6 +71,10 @@ export const nav: DefaultTheme.Config['nav'] = [
       {
         text: '绝区零',
         link: '/games/zzmi/T001ExtractModel/T001ExtractModel'
+      },
+      {
+        text: '异环',
+        link: '/games/ntemi/BaseInfo/BaseInfo'
       }
     ]
   },

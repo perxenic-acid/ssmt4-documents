@@ -240,6 +240,14 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
       ]
     }
   ],
+  '/games/ntemi/': [
+    {
+      text: '异环',
+      items: [
+        { text: '相关介绍', link: '/games/ntemi/BaseInfo/BaseInfo' },
+      ]
+    }
+  ],
   '/games/zzmi/': [
     {
       text: '绝区零',
