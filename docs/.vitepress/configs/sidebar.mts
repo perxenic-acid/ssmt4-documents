@@ -148,6 +148,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '原神',
       items: [
+        { text: '基础信息', link: '/games/gimi/BaseInfo/BaseInfo' },
         { text: '10612-4001修复方法', link: '/games/gimi/HowToSolveErrorCode/HowToSolveErrorCode' },
         { text: '颜色不匹配问题', link: '/games/gimi/ColorMismatch/ColorMismatch' },
         { text: '脸部隐藏问题', link: '/games/gimi/FaceHidingIssue/FaceHidingIssue' },
@@ -162,6 +163,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '崩坏:星穹铁道',
       items: [
+        { text: '基础信息', link: '/games/srmi/BaseInfo/BaseInfo' },
         { text: '无法导出完整角色体型', link: '/games/srmi/CantDumpFullBody/CantDumpFullBody' },
         { text: '动作Mod崩溃或异常', link: '/games/srmi/ActionModCrash/ActionModCrash' },
         { text: 'AI插针导致Mod炸裂', link: '/games/srmi/AIBrokeMods/AIBrokeMods' },
@@ -180,6 +182,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '明日方舟:终末地',
       items: [
+        { text: '基础信息', link: '/games/efmi/BaseInfo/BaseInfo' },
         { text: 'd3dx.ini特殊变更', link: '/games/efmi/D3dxIniChanges/D3dxIniChanges' },
         { text: '贴图通道作用', link: '/games/efmi/TextureChannels/TextureChannels' },
         { text: '如何注入3Dmigoto', link: '/games/efmi/HowToConfigAndInject/HowToConfigAndInject' },
@@ -192,6 +195,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '燕云十六声',
       items: [
+        { text: '基础信息', link: '/games/yysls/BaseInfo/BaseInfo' },
         { text: 'YYSLS基础配置', link: '/games/yysls/BasicConfig/BasicConfig' },
         { text: '多个游戏主程序问题', link: '/games/yysls/InjectionIssue/InjectionIssue' }
       ]
@@ -201,6 +205,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '少女前线2:追放',
       items: [
+        { text: '基础信息', link: '/games/gf2/BaseInfo/BaseInfo' },
         { text: '模型删减与偏移', link: '/games/gf2/ModelReductionAndOffset/ModelReductionAndOffset' }
       ]
     }
@@ -209,24 +214,27 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '崩坏3',
       items: [
+        { text: '基础信息', link: '/games/himi/BaseInfo/BaseInfo' },
         { text: '轮廓线修复', link: '/games/himi/OutlineFix/OutlineFix' },
         { text: 'Second UV Map用途', link: '/games/himi/SecondUVMapUsage/SecondUVMapUsage' }
       ]
     }
   ],
-  // '/games/identityv/': [
-  //   {
-  //     text: '第五人格',
-  //     items: [
-  //       { text: 'Mod制作指引', link: '/games/identityv/ModCreationGuide/ModCreationGuide' },
-  //       { text: '新版Mod制作基础', link: '/games/identityv/NeoX3Guide/NeoX3Guide' }
-  //     ]
-  //   }
-  // ],
+  '/games/identityv/': [
+    {
+      text: '第五人格',
+      items: [
+        { text: '基础信息', link: '/games/identityv/BaseInfo/BaseInfo' },
+        { text: 'Mod制作指引', link: '/games/identityv/ModCreationGuide/ModCreationGuide' },
+        { text: '新版Mod制作基础', link: '/games/identityv/NeoX3Guide/NeoX3Guide' }
+      ]
+    }
+  ],
   '/games/liarsbar/': [
     {
       text: 'Liar\'s Bar',
       items: [
+        { text: '基础信息', link: '/games/liarsbar/BaseInfo/BaseInfo' },
         { text: '手枪模型问题', link: '/games/liarsbar/PistolModelIssue/PistolModelIssue' }
       ]
     }
@@ -253,6 +261,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '绝区零',
       items: [
+        { text: '基础信息', link: '/games/zzmi/BaseInfo/BaseInfo' },
         { text: '爱丽丝的剑消失问题', link: '/games/zzmi/AliceSwordDisappear/AliceSwordDisappear' },
         { text: '上下身体分开问题', link: '/games/zzmi/BodySeparationIssue/BodySeparationIssue' },
         { text: '禁用动态高精度', link: '/games/zzmi/DisableDynamicHighPrecision/DisableDynamicHighPrecision' },

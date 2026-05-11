@@ -38,39 +38,43 @@ export const nav: DefaultTheme.Config['nav'] = [
     items: [
       {
         text: '原神',
-        link: '/games/gimi/HowToSolveErrorCode/HowToSolveErrorCode'
+        link: '/games/gimi/BaseInfo/BaseInfo'
       },
       {
         text: '崩坏:星穹铁道',
-        link: '/games/srmi/CantDumpFullBody/CantDumpFullBody'
+        link: '/games/srmi/BaseInfo/BaseInfo'
       },
       {
         text: '明日方舟:终末地',
-        link: '/games/efmi/D3dxIniChanges/D3dxIniChanges'
+        link: '/games/efmi/BaseInfo/BaseInfo'
       },
       {
         text: '燕云十六声',
-        link: '/games/yysls/BasicConfig/BasicConfig'
+        link: '/games/yysls/BaseInfo/BaseInfo'
       },
       {
         text: '少女前线2:追放',
-        link: '/games/gf2/ModelReductionAndOffset/ModelReductionAndOffset'
+        link: '/games/gf2/BaseInfo/BaseInfo'
       },
       {
         text: '崩坏3',
-        link: '/games/himi/OutlineFix/OutlineFix'
+        link: '/games/himi/BaseInfo/BaseInfo'
+      },
+      {
+        text: '第五人格',
+        link: '/games/identityv/BaseInfo/BaseInfo'
       },
       {
         text: 'Liar\'s Bar',
-        link: '/games/liarsbar/PistolModelIssue/PistolModelIssue'
+        link: '/games/liarsbar/BaseInfo/BaseInfo'
       },
       {
         text: '鸣潮',
-        link: '/games/wwmi/HowToFixTextureBug/HowToFixTextureBug'
+        link: '/games/wwmi/BaseInfo/BaseInfo'
       },
       {
         text: '绝区零',
-        link: '/games/zzmi/T001ExtractModel/T001ExtractModel'
+        link: '/games/zzmi/BaseInfo/BaseInfo'
       },
       {
         text: '异环',

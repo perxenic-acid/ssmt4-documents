@@ -30,6 +30,10 @@
 
 与 SSMT 支持的其它游戏一致，SSMT 全流程操作均可使用，提供轮椅级工作流体验。
 
+## GameBanana
+
+https://gamebanana.com/games/20357
+
 ## 来自 NicoMico 的建议
 
 对于鸣潮的 Mod 制作：
