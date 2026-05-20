@@ -23,7 +23,6 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
         { text: '找不到数据类型', link: '/newbie/ssmt/CantFindDataType/CantFindDataType' },
         { text: '提取模型有多个数据类型', link: '/newbie/ssmt/ExtractMultipleGameType/ExtractMultipleGameType' },
         { text: 'Dump文件过大处理', link: '/newbie/ssmt/DumpFileTooHuge/DumpFileTooHuge' },
-        { text: '导入模型后UV错误', link: '/newbie/ssmt/WrongUVAfterImport/WrongUVAfterImport' },
       ]
     }
   ],
