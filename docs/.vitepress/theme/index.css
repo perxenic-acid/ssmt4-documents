@@ -618,11 +618,29 @@ html {
   border-bottom: none !important;
 }
 
+/* 让子页面导航栏右侧 content-body 也透明，跟随毛玻璃效果 */
+.VPNavBar .content-body {
+  background-color: transparent !important;
+}
+
+.dark .VPNavBar .content-body {
+  background-color: transparent !important;
+}
+
 
 .VPSidebar {
   border-right: 1px solid transparent !important;
   background-color: transparent !important;
   backdrop-filter: blur(10px);
+}
+
+/* 让侧边栏及其 curtain 背景从导航栏下方开始，避免透过顶部毛玻璃导航栏 */
+.VPSidebar {
+  --vp-layout-top-height: var(--vp-nav-height);
+}
+
+.VPSidebar .curtain {
+  background-color: transparent !important;
 }
 
 .VPSidebar::after {
