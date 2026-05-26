@@ -170,41 +170,67 @@ onMounted(() => {
 .video-bg-control {
   display: flex;
   align-items: center;
-  margin-left: 16px;
-  padding-left: 16px;
-  border-left: 1px solid var(--vp-c-divider);
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 0, 128, 0.15);
   height: 24px;
+  transition: border-color 0.3s;
 }
 
 .video-toggle {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 3px 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--vp-c-text-1);
-  transition: opacity 0.2s;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  position: relative;
 }
 
-.video-toggle:hover {
-  opacity: 0.7;
+.video-toggle:hover:not(:disabled) {
+  background-color: rgba(255, 0, 128, 0.08);
+  color: #ff0080;
+  transform: scale(1.15);
+  text-shadow: 0 0 6px rgba(255, 0, 128, 0.3);
+}
+
+.dark .video-toggle:hover:not(:disabled) {
+  background-color: rgba(255, 0, 128, 0.12);
 }
 
 .video-toggle:disabled {
   cursor: wait;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .icon-container {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 加载中的沙漏动画 */
+.video-toggle:disabled .icon-container {
+  animation: hourglassSpin 1.2s ease-in-out infinite;
+}
+
+@keyframes hourglassSpin {
+  0%, 100% { transform: rotate(0deg); opacity: 0.6; }
+  25% { transform: rotate(90deg); opacity: 1; }
+  50% { transform: rotate(180deg); opacity: 0.6; }
+  75% { transform: rotate(270deg); opacity: 1; }
 }
 
 .muted {
-  opacity: 0.5;
+  opacity: 0.4;
   filter: grayscale(100%);
+  transition: all 0.3s;
 }
 
 @media (max-width: 768px) {

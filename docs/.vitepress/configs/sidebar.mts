@@ -1,6 +1,7 @@
 import type { DefaultTheme } from 'vitepress'
 
 export const sidebar: DefaultTheme.Config['sidebar'] = {
+
   '/newbie/ssmt/': [
     {
       text: 'SSMT',
@@ -22,7 +23,6 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
         { text: '找不到数据类型', link: '/newbie/ssmt/CantFindDataType/CantFindDataType' },
         { text: '提取模型有多个数据类型', link: '/newbie/ssmt/ExtractMultipleGameType/ExtractMultipleGameType' },
         { text: 'Dump文件过大处理', link: '/newbie/ssmt/DumpFileTooHuge/DumpFileTooHuge' },
-        { text: '导入模型后UV错误', link: '/newbie/ssmt/WrongUVAfterImport/WrongUVAfterImport' },
       ]
     }
   ],
@@ -38,7 +38,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
         { text: '教程: 手动逆向功能', link: '/newbie/reverse/ManualReverse/ManualReverse' },
         
         { text: '案例: 原神脸部Mod', link: '/newbie/reverse/GenshinFaceReverse/GenshinFaceReverse' },
-        { text: '案例: 跨IB渲染 Mod', link: '/newbie/reverse/CrossIBReverse/CrossIBReverse' },
+        //{ text: '案例: 跨IB渲染 Mod', link: '/newbie/reverse/CrossIBReverse/CrossIBReverse' },
         { text: '案例: 使用TexFx插件的Mod', link: '/newbie/reverse/Case_DrawWithTexFx/Case_DrawWithTexFx' },
         { text: '案例: Buffer 膨胀混淆技术', link: '/newbie/reverse/BufferInflationObfuscation/BufferInflationObfuscation' },
         { text: '案例: ResourceVBList.size() 为 4 的 Mod', link: '/newbie/reverse/ResourceVBListSize4/ResourceVBListSize4' },
@@ -69,6 +69,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
         { text: '删除骨骼约束', link: '/newbie/theherta4/RemoveBoneConstraints/RemoveBoneConstraints' },
         { text: '平滑法线存TEXCOORD1.xy', link: '/newbie/theherta4/SmoothNormalToTEXCOORD1/SmoothNormalToTEXCOORD1' },
         { text: '模型细分后权重问题', link: '/newbie/theherta4/SubdivisionWeightIssue/SubdivisionWeightIssue' },
+        //SwitchAndToggle
+        { text: '蓝图实现按键开关和按键切换', link: '/newbie/theherta4/SwitchAndToggle/SwitchAndToggle' },
       ]
     }
   ],
@@ -81,6 +83,16 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
         { text: 'Paint.NET Modify Channels插件', link: '/newbie/tools/ModifyChannelPlugin/ModifyChannelPlugin' },
         { text: 'PhotoShop', link: '/newbie/tools/PhotoShop/PhotoShop' },
         { text: 'Substance 3D Painter', link: '/newbie/tools/Substance3DPainter/Substance3DPainter' },
+      ]
+    }
+  ],
+  '/newbie/faq/': [
+    {
+      text: '常见问题',
+      items: [
+        { text: '基础信息', link: '/newbie/faq/BaseInfo/BaseInfo' },
+        { text: '软件在哪下载', link: '/newbie/faq/WhereGetSoftware/WhereGetSoftware' },
+        
       ]
     }
   ],
@@ -120,20 +132,20 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
         {
           text: '基础语法——猜数游戏', link: '/developer/rust/基础语法——猜数游戏/引入.md', items: [
             {text: '赋值', link: '/developer/rust/基础语法——猜数游戏/赋值.md' },
-            {text: '第三方包依赖', link: '/developer/rust/基础语法——猜数游戏/第三方包依赖.md' },
+            {text: '第三方包依赖', link: '/developer/rust/基础语法——猜数游戏/第 三方包依赖.md' },
             {text: '控制语句和模式匹配', link: '/developer/rust/基础语法——猜数游戏/控制语句和模式匹配.md' },
-            {text: '循环与表达式', link: '/developer/rust/基础语法——猜数游戏/循环与表达式.md' },
+            {text: '循环与表达式', link: '/developer/rust/基础语法——猜数游戏/循 环与表达式.md' },
           ]
         },
         {
           text: '编程语言常识', items: [
             {text: '强类型与弱类型, 静态类型与动态类型', link: '/developer/rust/编程语言常识/强类型与弱类型, 静态类型与动态类型.md' },
-            {text: '编译型和解释型语言', link: '/developer/rust/编程语言常识/编译型和解释型语言.md'},
-            {text: '栈内存与堆内存', link: '/developer/rust/编程语言常识/栈内存与堆内存.md' }
+            {text: '编译型和解释型语言', link: '/developer/rust/编程语言常识/编 译型和解释型语言.md'},
+            {text: '栈内存与堆内存', link: '/developer/rust/编程语言常识/栈内存 与堆内存.md' }
           ]
         },
         {
-          text: '基本语法与数据类型', link: '/developer/rust/基本语法与基本数据类型/基本语法与基本数据类型.md'
+          text: '基本语法与数据类型', link: '/developer/rust/基本语法与基本数据 类型/基本语法与基本数据类型.md'
         },
         {
           text: '函数与控制流', link: '/developer/rust/函数与控制流/函数与控制流.md'
@@ -148,15 +160,14 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '原神',
       items: [
+        { text: '基础信息', link: '/games/gimi/BaseInfo/BaseInfo' },
         { text: '10612-4001修复方法', link: '/games/gimi/HowToSolveErrorCode/HowToSolveErrorCode' },
-        { text: '10010-4001错误弹窗', link: '/games/gimi/10010-4001/10010-4001' },
         { text: '颜色不匹配问题', link: '/games/gimi/ColorMismatch/ColorMismatch' },
         { text: '脸部隐藏问题', link: '/games/gimi/FaceHidingIssue/FaceHidingIssue' },
         { text: 'Mod扭曲或失效', link: '/games/gimi/ModDistortion/ModDistortion' },
         { text: 'Mod边缘剧烈抖动', link: '/games/gimi/ModIsShaking/ModIsShaking' },
         { text: 'OR Fix与NN Fix', link: '/games/gimi/ORFixAndNNFix/ORFixAndNNFix' },
         { text: '轮廓线修复', link: '/games/gimi/OutlineFix/OutlineFix' },
-        { text: '使用原神Mod不报错', link: '/games/gimi/PlayWithoutError/PlayWithoutError' }
       ]
     }
   ],
@@ -164,6 +175,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '崩坏:星穹铁道',
       items: [
+        { text: '基础信息', link: '/games/srmi/BaseInfo/BaseInfo' },
         { text: '无法导出完整角色体型', link: '/games/srmi/CantDumpFullBody/CantDumpFullBody' },
         { text: '动作Mod崩溃或异常', link: '/games/srmi/ActionModCrash/ActionModCrash' },
         { text: 'AI插针导致Mod炸裂', link: '/games/srmi/AIBrokeMods/AIBrokeMods' },
@@ -182,6 +194,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '明日方舟:终末地',
       items: [
+        { text: '基础信息', link: '/games/efmi/BaseInfo/BaseInfo' },
         { text: 'd3dx.ini特殊变更', link: '/games/efmi/D3dxIniChanges/D3dxIniChanges' },
         { text: '贴图通道作用', link: '/games/efmi/TextureChannels/TextureChannels' },
         { text: '如何注入3Dmigoto', link: '/games/efmi/HowToConfigAndInject/HowToConfigAndInject' },
@@ -194,6 +207,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '燕云十六声',
       items: [
+        { text: '基础信息', link: '/games/yysls/BaseInfo/BaseInfo' },
         { text: 'YYSLS基础配置', link: '/games/yysls/BasicConfig/BasicConfig' },
         { text: '多个游戏主程序问题', link: '/games/yysls/InjectionIssue/InjectionIssue' }
       ]
@@ -203,6 +217,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '少女前线2:追放',
       items: [
+        { text: '基础信息', link: '/games/gf2/BaseInfo/BaseInfo' },
         { text: '模型删减与偏移', link: '/games/gf2/ModelReductionAndOffset/ModelReductionAndOffset' }
       ]
     }
@@ -211,6 +226,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '崩坏3',
       items: [
+        { text: '基础信息', link: '/games/himi/BaseInfo/BaseInfo' },
         { text: '轮廓线修复', link: '/games/himi/OutlineFix/OutlineFix' },
         { text: 'Second UV Map用途', link: '/games/himi/SecondUVMapUsage/SecondUVMapUsage' }
       ]
@@ -220,6 +236,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '第五人格',
       items: [
+        { text: '基础信息', link: '/games/identityv/BaseInfo/BaseInfo' },
         { text: 'Mod制作指引', link: '/games/identityv/ModCreationGuide/ModCreationGuide' },
         { text: '新版Mod制作基础', link: '/games/identityv/NeoX3Guide/NeoX3Guide' }
       ]
@@ -229,6 +246,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: 'Liar\'s Bar',
       items: [
+        { text: '基础信息', link: '/games/liarsbar/BaseInfo/BaseInfo' },
         { text: '手枪模型问题', link: '/games/liarsbar/PistolModelIssue/PistolModelIssue' }
       ]
     }
@@ -237,8 +255,17 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '鸣潮',
       items: [
+        { text: '基础信息', link: '/games/wwmi/BaseInfo/BaseInfo' },
         { text: '版本更新后贴图炸裂修复', link: '/games/wwmi/HowToFixTextureBug/HowToFixTextureBug' },
         { text: '一键启动路径配置', link: '/games/wwmi/ProcessPathConfig/ProcessPathConfig' }
+      ]
+    }
+  ],
+  '/games/ntemi/': [
+    {
+      text: '异环',
+      items: [
+        { text: '相关介绍', link: '/games/ntemi/BaseInfo/BaseInfo' },
       ]
     }
   ],
@@ -246,6 +273,7 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     {
       text: '绝区零',
       items: [
+        { text: '基础信息', link: '/games/zzmi/BaseInfo/BaseInfo' },
         { text: '爱丽丝的剑消失问题', link: '/games/zzmi/AliceSwordDisappear/AliceSwordDisappear' },
         { text: '上下身体分开问题', link: '/games/zzmi/BodySeparationIssue/BodySeparationIssue' },
         { text: '禁用动态高精度', link: '/games/zzmi/DisableDynamicHighPrecision/DisableDynamicHighPrecision' },
