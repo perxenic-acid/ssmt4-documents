@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 
+const showDropdown = ref(false)
 const currentLang = ref('zh-CN')
 
 const languages = [
@@ -14,13 +15,28 @@ const languages = [
   { code: 'de', label: 'Deutsch' }
 ]
 
-const handleLanguageChange = (event: Event) => {
-  const select = event.target as HTMLSelectElement
-  const lang = select.value
-  
+const currentLabel = computed(() =>
+  languages.find(l => l.code === currentLang.value)?.label ?? '简体中文'
+)
+
+const toggleDropdown = () => {
+  showDropdown.value = !showDropdown.value
+}
+
+const closeDropdown = () => {
+  showDropdown.value = false
+}
+
+const selectLang = (lang: string) => {
+  if (lang === currentLang.value) {
+    showDropdown.value = false
+    return
+  }
+
+  currentLang.value = lang
+  showDropdown.value = false
+
   // 设置 Google 翻译 Cookie
-  // 格式: /源语言/目标语言
-  // auto 表示自动检测源语言
   const cookieValue = `/auto/${lang}`
   
   document.cookie = `googtrans=${cookieValue}; path=/;`
@@ -30,7 +46,16 @@ const handleLanguageChange = (event: Event) => {
   window.location.reload()
 }
 
+const handleClickOutside = (e: MouseEvent) => {
+  const target = e.target as HTMLElement
+  if (!target.closest('.translate-wrapper')) {
+    showDropdown.value = false
+  }
+}
+
 onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+
   // 读取当前 Cookie 中的语言设置
   const cookies = document.cookie.split(';')
   const googtrans = cookies.find(c => c.trim().startsWith('googtrans='))
@@ -91,9 +116,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="translate-wrapper">
-    <div class="icon-container">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-languages">
+  <div class="translate-wrapper notranslate" translate="no">
+    <button class="translate-btn" @click.stop="toggleDropdown" :class="{ active: showDropdown }">
+      <svg class="translate-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="m5 8 6 6"/>
         <path d="m4 14 6-8 2-2"/>
         <path d="M2 5h12"/>
@@ -101,13 +126,26 @@ onMounted(() => {
         <path d="m22 22-5-10-5 10"/>
         <path d="M14 18h6"/>
       </svg>
-    </div>
-    
-    <select class="custom-select notranslate" translate="no" :value="currentLang" @change="handleLanguageChange">
-      <option v-for="lang in languages" :key="lang.code" :value="lang.code">
-        {{ lang.label }}
-      </option>
-    </select>
+      <span class="selected-text">{{ currentLabel }}</span>
+      <svg class="chevron-icon" :class="{ open: showDropdown }" xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m6 9 6 6 6-6"/>
+      </svg>
+    </button>
+
+    <Transition name="dropdown">
+      <div v-if="showDropdown" class="translate-dropdown">
+        <button
+          v-for="lang in languages"
+          :key="lang.code"
+          class="dropdown-item"
+          :class="{ active: lang.code === currentLang }"
+          @click="selectLang(lang.code)"
+        >
+          <span class="item-label">{{ lang.label }}</span>
+          <span v-if="lang.code === currentLang" class="item-check">✓</span>
+        </button>
+      </div>
+    </Transition>
 
     <!-- 隐藏的原生组件挂载点 -->
     <div id="google_translate_element" style="display: none;"></div>
@@ -118,37 +156,170 @@ onMounted(() => {
 .translate-wrapper {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 12px;
+  padding: 0 8px;
+  position: relative;
 }
 
-.icon-container {
+/* ---- 触发按钮 ---- */
+.translate-btn {
   display: flex;
   align-items: center;
-  color: var(--vp-c-text-1);
-}
-
-.custom-select {
-  appearance: none;
+  gap: 5px;
+  padding: 5px 9px 5px 7px;
+  border-radius: 8px;
+  border: 1px solid transparent;
   background-color: transparent;
-  border: none;
-  color: var(--vp-c-text-1);
-  font-size: 14px;
-  font-family: inherit;
   cursor: pointer;
-  padding-right: 16px; /* 为自定义箭头留出空间 */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-
-.custom-select:focus {
-  outline: none;
-}
-
-.custom-select option {
-  background-color: var(--vp-c-bg);
+  transition: all 0.25s ease;
+  font-family: inherit;
+  font-size: 12.5px;
   color: var(--vp-c-text-1);
+  white-space: nowrap;
+}
+
+.translate-btn:hover,
+.translate-btn.active {
+  background-color: rgba(255, 0, 128, 0.08);
+  border-color: rgba(255, 0, 128, 0.2);
+}
+
+.dark .translate-btn:hover,
+.dark .translate-btn.active {
+  background-color: rgba(255, 0, 128, 0.12);
+  border-color: rgba(255, 0, 128, 0.25);
+}
+
+.translate-icon {
+  flex-shrink: 0;
+  color: var(--vp-c-text-2);
+  transition: color 0.25s ease, transform 0.3s ease;
+}
+
+.translate-btn:hover .translate-icon,
+.translate-btn.active .translate-icon {
+  color: #ff0080;
+  transform: rotate(-8deg) scale(1.1);
+}
+
+.selected-text {
+  font-size: 12px;
+  line-height: 1;
+  transition: color 0.25s ease;
+}
+
+.translate-btn:hover .selected-text,
+.translate-btn.active .selected-text {
+  color: #ff0080;
+}
+
+.chevron-icon {
+  flex-shrink: 0;
+  color: var(--vp-c-text-3);
+  transition: transform 0.3s ease, color 0.25s ease;
+}
+
+.chevron-icon.open {
+  transform: rotate(180deg);
+}
+
+.translate-btn:hover .chevron-icon,
+.translate-btn.active .chevron-icon {
+  color: #ff0080;
+}
+
+/* ---- 自定义下拉菜单 ---- */
+.translate-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 8px;
+  min-width: 140px;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 0, 128, 0.2);
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 12px 36px rgba(255, 0, 128, 0.1);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.dark .translate-dropdown {
+  background-color: rgba(11, 12, 21, 0.7);
+  border-color: rgba(255, 0, 128, 0.3);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.2),
+    0 12px 36px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 7px 12px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--vp-c-text-1);
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 0, 128, 0.1);
+  color: #ff0080;
+  padding-left: 16px;
+}
+
+.dark .dropdown-item:hover {
+  background-color: rgba(255, 0, 128, 0.15);
+}
+
+.dropdown-item.active {
+  color: #ff0080;
+  font-weight: 600;
+}
+
+.item-check {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* ---- 展开/收起动画 ---- */
+.dropdown-enter-active {
+  animation: dropIn 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dropdown-leave-active {
+  animation: dropOut 0.15s ease-in;
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dropOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
 }
 
 /* 彻底隐藏 Google 翻译的所有 UI 元素 */

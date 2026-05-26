@@ -627,6 +627,170 @@ html {
   background-color: transparent !important;
 }
 
+/* ======= 导航栏整体美化 ======= */
+
+/* --- 网站标题 --- */
+.VPNavBar .title {
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, var(--vp-c-text-1), #a755f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  transition: all 0.3s ease;
+}
+
+.VPNavBar .title:hover {
+  background: linear-gradient(135deg, #ff0080, #a755f7, #00c6ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: titleShimmer 1.5s linear infinite;
+}
+
+@keyframes titleShimmer {
+  to { background-position: 200% center; }
+}
+
+.dark .VPNavBar .title {
+  background: linear-gradient(135deg, #e0e0e0, #a755f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.dark .VPNavBar .title:hover {
+  background: linear-gradient(135deg, #ff0080, #daae51, #00c6ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* --- 主导航链接 (Home 等) --- */
+.VPNavBarMenuLink {
+  position: relative;
+  transition: all 0.3s ease !important;
+}
+
+.VPNavBarMenuLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff0080, #a755f7);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.VPNavBarMenuLink:hover::after,
+.VPNavBarMenuLink.active::after {
+  width: 70%;
+}
+
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuLink.active {
+  color: #ff0080 !important;
+  text-shadow: 0 0 8px rgba(255, 0, 128, 0.4);
+}
+
+.dark .VPNavBarMenuLink:hover,
+.dark .VPNavBarMenuLink.active {
+  text-shadow: 0 0 12px rgba(255, 0, 128, 0.6);
+}
+
+/* --- 下拉菜单触发按钮 (新手教程/游戏配置/开发者文档) --- */
+.VPFlyout .button .text {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.VPFlyout .button:hover .text {
+  color: #ff0080 !important;
+  text-shadow: 0 0 8px rgba(255, 0, 128, 0.4);
+}
+
+.dark .VPFlyout .button:hover .text {
+  text-shadow: 0 0 12px rgba(255, 0, 128, 0.6);
+}
+
+/* 下拉箭头 */
+.VPFlyout .button .text-icon {
+  transition: all 0.3s ease;
+}
+
+.VPFlyout .button:hover .text-icon {
+  color: #ff0080 !important;
+  transform: translateY(1px);
+}
+
+/* 下拉箭头图标 - 统一粉色主题 */
+.VPFlyout .button .vpi-chevron-down {
+  color: var(--vp-c-text-3);
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.VPFlyout .button:hover .vpi-chevron-down {
+  color: #ff0080 !important;
+  transform: translateY(1px);
+}
+
+.dark .VPFlyout .button .vpi-chevron-down {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- 导航栏 vp-menu 按钮 hover 增强 --- */
+.VPNavBarMenuGroup .button {
+  transition: all 0.25s ease;
+  border-radius: 6px;
+  padding: 0 10px !important;
+}
+
+.VPNavBarMenuGroup .button:hover {
+  background-color: rgba(255, 0, 128, 0.06);
+}
+
+.dark .VPNavBarMenuGroup .button:hover {
+  background-color: rgba(255, 0, 128, 0.1);
+}
+
+/* 下拉菜单整个 menu 区域 (弹出面板包裹) */
+.VPFlyout .menu {
+  transition: opacity 0.25s ease;
+}
+
+/* --- 右侧小工具按钮 (✨特效开关, ⏳等) --- */
+.VPNavBar .content button:not(.VPNavBarSearchButton):not(.translate-btn):not(.music-toggle):not(.VPMenu *) {
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+
+.VPNavBar .content button:not(.VPNavBarSearchButton):not(.translate-btn):not(.music-toggle):not(.VPMenu *):hover {
+  background-color: rgba(255, 0, 128, 0.08);
+  color: #ff0080 !important;
+  text-shadow: 0 0 6px rgba(255, 0, 128, 0.3);
+  transform: scale(1.1);
+}
+
+.dark .VPNavBar .content button:not(.VPNavBarSearchButton):not(.translate-btn):not(.music-toggle):not(.VPMenu *):hover {
+  background-color: rgba(255, 0, 128, 0.12);
+}
+
+/* --- 导航栏分割线 --- */
+.VPNavBar .divider {
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 128, 0.2), rgba(167, 85, 247, 0.2), transparent) !important;
+  height: 1px !important;
+  opacity: 0.6;
+}
+
+.dark .VPNavBar .divider {
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 128, 0.25), rgba(167, 85, 247, 0.25), transparent) !important;
+}
+
 
 .VPSidebar {
   border-right: 1px solid transparent !important;
@@ -1734,39 +1898,52 @@ html {
 
 
 .VPMenu {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 0, 128, 0.2) !important;
-  border-radius: 12px !important;
-  box-shadow: 0 10px 40px rgba(255, 0, 128, 0.15), 
-              0 0 20px rgba(255, 0, 128, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(255, 0, 128, 0.25) !important;
+  border-radius: 14px !important;
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.06),
+    0 15px 45px rgba(255, 0, 128, 0.12),
+    0 0 30px rgba(255, 0, 128, 0.06) !important;
   overflow: hidden;
-  animation: menuUnfold 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: menuUnfold 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 6px !important;
 }
 
 .dark .VPMenu {
-  background-color: rgba(11, 12, 21, 0.95) !important;
+  background-color: rgba(11, 12, 21, 0.6) !important;
   border: 1px solid rgba(255, 0, 128, 0.3) !important;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 
-              0 0 20px rgba(255, 0, 128, 0.2) !important;
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.2),
+    0 15px 45px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(255, 0, 128, 0.1) !important;
 }
 
 @keyframes menuUnfold {
-  from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  from { opacity: 0; transform: translateY(-8px) scale(0.96); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .VPMenuLink {
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   position: relative;
-  padding-left: 16px;
+  padding: 6px 18px !important;
+  margin: 2px 0;
+  border-radius: 8px;
 }
 
 .VPMenuLink:hover {
-  background-color: rgba(255, 0, 128, 0.1) !important;
+  background-color: rgba(255, 0, 128, 0.12) !important;
   color: #ff0080 !important;
-  padding-left: 24px;
+  padding-left: 26px !important;
   text-shadow: 0 0 8px rgba(255, 0, 128, 0.5);
+  transform: translateX(4px);
+}
+
+.dark .VPMenuLink:hover {
+  background-color: rgba(255, 0, 128, 0.18) !important;
 }
 
 .VPMenuLink:hover::before {
@@ -1777,7 +1954,7 @@ html {
   transform: translateY(-50%);
   font-size: 10px;
   color: #ff0080;
-  animation: heartBeat 1s infinite;
+  animation: heartBeat 0.8s ease-in-out infinite;
 }
 
 @keyframes heartBeat {
@@ -1790,19 +1967,22 @@ html {
   font-family: 'Rajdhani', sans-serif;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  padding-bottom: 8px;
-  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 10px 18px 8px !important;
+  margin: 0 0 4px;
 }
 
 .dark .VPMenuGroup .title {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 
 .VPSwitchAppearance {
   background-color: rgba(0, 0, 0, 0.05) !important;
   border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 22px !important;
   transition: all 0.5s ease;
 }
 
@@ -1819,6 +1999,7 @@ html {
 
 .VPSwitchAppearance .check {
   transform: none !important;
+  border-radius: 50% !important;
 }
 
 
