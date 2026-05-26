@@ -1272,6 +1272,8 @@ html {
   color: rgba(0, 0, 0, 0.2);
   border-right: 1px solid rgba(0, 0, 0, 0.06);
   padding-top: 16px;
+  line-height: 1.5;
+  font-size: 13.5px;
 }
 
 .dark .vp-doc div[class*='language-'] .line-numbers-wrapper {
@@ -1282,6 +1284,13 @@ html {
 /* 代码块圆角内边距 */
 .vp-doc div[class*='language-'] pre.shiki {
   padding: 16px 20px !important;
+}
+
+/* 确保 code 元素字号和行高与 pre 一致（覆盖 VitePress 默认 0.875em / 1.7） */
+.vp-doc div[class*='language-'] pre.shiki code {
+  font-size: 13.5px;
+  line-height: 1.5;
+  padding: 0;
 }
 
 .dark .VPSidebarItem .text {
