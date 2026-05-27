@@ -2,6 +2,82 @@
     --vp-font-family-mono: "JetBrains Mono", "Sarasa Mono SC", monospace;
 }
 
+/* ===== 导航栏下拉卡片美化 ===== */
+/* 直接复用翻译组件下拉菜单的样式 */
+.VPMenu {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(32px) !important;
+    -webkit-backdrop-filter: blur(32px) !important;
+    border: 1px solid rgba(255, 0, 128, 0.2) !important;
+    border-radius: 10px !important;
+    padding: 5px !important;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.06),
+        0 12px 36px rgba(255, 0, 128, 0.1) !important;
+    overflow: hidden;
+    animation: menuFadeIn 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dark .VPMenu {
+    background-color: rgba(11, 12, 21, 0.95) !important;
+    backdrop-filter: blur(32px) !important;
+    -webkit-backdrop-filter: blur(32px) !important;
+    border-color: rgba(255, 0, 128, 0.3) !important;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        0 12px 36px rgba(0, 0, 0, 0.3) !important;
+}
+
+@keyframes menuFadeIn {
+    from { opacity: 0; transform: translateY(-6px) scale(0.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* 分组标题 */
+.VPMenu .VPMenuGroup > .title {
+    padding: 4px 12px 2px !important;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: color-mix(in srgb, #ff0080 70%, var(--vp-c-text-1)) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    margin: 0 0 3px;
+}
+
+.dark .VPMenu .VPMenuGroup > .title {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 菜单项 */
+.VPMenu .VPMenuLink {
+    margin: 1px 0 !important;
+}
+
+.VPMenu .VPMenuLink a {
+    display: flex;
+    align-items: center;
+    padding: 5px 12px !important;
+    border-radius: 7px !important;
+    font-size: 13px;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+}
+
+.VPMenu .VPMenuLink a:hover {
+    background-color: rgba(255, 0, 128, 0.1) !important;
+    color: #ff0080 !important;
+    padding-left: 16px !important;
+}
+
+.dark .VPMenu .VPMenuLink a:hover {
+    background-color: rgba(255, 0, 128, 0.15) !important;
+}
+
+.VPMenu .VPMenuGroup .VPMenuLink {
+    padding: 0 2px !important;
+}
+
 code,
 pre,
 .shiki {
