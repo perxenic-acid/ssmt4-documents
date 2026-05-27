@@ -163,3 +163,13 @@ pre,
 .lemma-body {
     line-height: 1.6;
 }
+
+/* ===== 移动端导航栏修复 ===== */
+/* 在移动端隐藏自定义导航组件，避免干扰汉堡菜单按钮 */
+@media (max-width: 768px) {
+  .video-bg-control,
+  .music-control,
+  .translate-wrapper {
+    display: none !important;
+  }
+}
