@@ -2197,86 +2197,8 @@ html {
 }
 
 
-.VPMenu {
-  background-color: rgba(255, 255, 255, 0.65) !important;
-  backdrop-filter: blur(24px) !important;
-  -webkit-backdrop-filter: blur(24px) !important;
-  border: 1px solid rgba(255, 0, 128, 0.25) !important;
-  border-radius: 14px !important;
-  box-shadow: 
-    0 5px 15px rgba(0, 0, 0, 0.06),
-    0 15px 45px rgba(255, 0, 128, 0.12),
-    0 0 30px rgba(255, 0, 128, 0.06) !important;
-  overflow: hidden;
-  animation: menuUnfold 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  padding: 6px !important;
-}
 
-.dark .VPMenu {
-  background-color: rgba(11, 12, 21, 0.6) !important;
-  border: 1px solid rgba(255, 0, 128, 0.3) !important;
-  box-shadow: 
-    0 5px 15px rgba(0, 0, 0, 0.2),
-    0 15px 45px rgba(0, 0, 0, 0.4),
-    0 0 30px rgba(255, 0, 128, 0.1) !important;
-}
 
-@keyframes menuUnfold {
-  from { opacity: 0; transform: translateY(-8px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-.VPMenuLink {
-  transition: all 0.25s ease;
-  position: relative;
-  padding: 6px 18px !important;
-  margin: 2px 0;
-  border-radius: 8px;
-}
-
-.VPMenuLink:hover {
-  background-color: rgba(255, 0, 128, 0.12) !important;
-  color: #ff0080 !important;
-  padding-left: 26px !important;
-  text-shadow: 0 0 8px rgba(255, 0, 128, 0.5);
-  transform: translateX(4px);
-}
-
-.dark .VPMenuLink:hover {
-  background-color: rgba(255, 0, 128, 0.18) !important;
-}
-
-.VPMenuLink:hover::before {
-  content: "♥";
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 10px;
-  color: #ff0080;
-  animation: heartBeat 0.8s ease-in-out infinite;
-}
-
-@keyframes heartBeat {
-  0%, 100% { transform: translateY(-50%) scale(1); }
-  50% { transform: translateY(-50%) scale(1.3); }
-}
-
-.VPMenuGroup .title {
-  color: #a755f7 !important;
-  font-family: 'Rajdhani', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-  font-size: 13px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  padding: 10px 18px 8px !important;
-  margin: 0 0 4px;
-}
-
-.dark .VPMenuGroup .title {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
 
 
 .VPSwitchAppearance {
